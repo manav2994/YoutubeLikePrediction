@@ -1,7 +1,7 @@
 
 # Youtube Like Prediction
 
-Being an open ended research problem, this approach was followed after doing the Literature Review. Youtube videos are still found long after they are initially submitted to the portal and prediction of like count becomes difficult. 1366 videos were collected with the search query '**food**' using the YouTube Data API v3 out of which 100 were separated for testing. After following some previous work done in this area and considering the availability of limited data, Random forest Regressor was used for prediction of likes. Following features were used for training:
+Being an open ended research problem, this approach was followed after doing the Literature Review. Youtube videos are still found long after they are initially submitted to the portal and prediction of like count becomes difficult. 585 videos were collected with the search query '**food**' using the YouTube Data API v3 out of which 100 were separated for testing. After following some previous work done in this area and considering the availability of limited data, Random forest Regressor was used for prediction of likes. Following features were used for training:
 
 [**"channelAge","videoAge","viewCount","commentCount","favoriteCount","channel_commentCount","channel_subsriberCount","channel_ViewCount","likeCount"**,
 *"channelViewCount/channeVideoCount","viewCount/videoAge","subscriberCount/channelVideoCount","channel_subsriberCount/channelAge"]*
@@ -10,13 +10,9 @@ These include both *derived* and **collected** features.
 
 
 ## Results:
-**Results on Testing Data[100 Videos]:**
 
-
-* R^2 (coefficient of determination) regression score function.
- = **0.966**
-
-* cross_val_score = [98.99+99.18+93.78+99.28+94.45]/5 = **97.14%**
+* cross_val_score = [ 0.85541751  0.87433793  0.80681138  0.70352987  0.86366066] 
+* Accuracy = **82.1%**
 
 ### Files Description
 
