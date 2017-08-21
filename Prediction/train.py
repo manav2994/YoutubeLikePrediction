@@ -11,7 +11,7 @@ import time
 
 headers = ['channelAge', 'videoAge', 'viewCount', 'commentCount', 'favoriteCount','channel_commentCount', 'channel_subsriberCount', 'channel_ViewCount', 'channelViewCount/channeVideoCount', 'viewCount/videoAge', 'subscriberCount/channelVideoCount', 'channel_subsriberCount/channelAge']
 
-df = pd.read_csv("trainFood.csv")
+df = pd.read_csv("processedFood.csv")
  
 X = df[headers]
 Y = df.likeCount
@@ -30,13 +30,13 @@ Y = np.concatenate((Y,Y),axis=0)
 
 clf.fit(X,Y)
 
-file_name = "RandomForestRegressor"
+file_name = "RandomForestRegressorTest"
 fileObject = open(file_name,'wb')
 
 pickle.dump(clf,fileObject)
 
-data = pd.read_csv("testFood.csv")
-df = pd.DataFrame(data)
+#data = pd.read_csv("testFood.csv")
+#df = pd.DataFrame(data)
 
 X_test = df[headers]
 Y_test = df["likeCount"]
@@ -53,8 +53,7 @@ print(org)
 print(pred)
 print(err)
 #Accuracy Scores
-print("R^2 Score : ",clf.score(X_test,Y_test))
+#print("R^2 Score : ",clf.score(X_test,Y_test))
 scores = cross_val_score(clf, X, Y, cv =5)
 print("cross_val_score : ",scores)
-
 
